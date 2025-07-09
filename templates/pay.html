@@ -89,7 +89,7 @@
 				checking_payment_made_progress.textContent = "Checking for payment...";
 
 				let expected_payment_reference = document.getElementById("expected_payment_reference").value;
-				fetch(`http://127.0.0.1:5000/check-payment-status/${expected_payment_reference}`, {
+				fetch(`http://{{ SERVER_NAME }}/check-payment-status/${expected_payment_reference}`, {
 				method: "GET",
 				headers: { 'Content-Type': 'application/json'}
 				})
