@@ -109,8 +109,16 @@ def index():
         expected_payment_reference = request.args.get(
             "expected_payment_reference"
         )  # noqa: E501
+
+    # Get product price from environment variable
+    product_code = "T253X7002T0C101"  # Current product code
+    price_env_var = f"PRODUCT_SELL_PRICE_{product_code}"
+    sell_price = os.getenv(price_env_var)
+
     return render_template(
-        "products.html", expected_payment_reference=expected_payment_reference
+        "products.html",
+        expected_payment_reference=expected_payment_reference,
+        sell_price=sell_price,
     )
 
 
