@@ -247,3 +247,7 @@ def thank_you():
         SUPPORT_EMAIL=SUPPORT_EMAIL,
         SUPPORT_CONTACT_NUMBER=SUPPORT_CONTACT_NUMBER,
     )
+
+@app.route("/returns")
+def returns():
+    return render_template('returns.html')

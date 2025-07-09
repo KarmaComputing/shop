@@ -11,6 +11,16 @@
   <body>
     {% block content %}{% endblock %}
     
+    <footer class="bg-light py-4 mt-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 text-center">
+            <a href="{{ url_for('returns') }}" class="text-decoration-none">Returns Policy</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
     <script>
       document.addEventListener("DOMContentLoaded", (event) => {
         console.log("DOMContentLoaded");
