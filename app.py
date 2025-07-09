@@ -58,6 +58,7 @@ BANK_ACCOUNT_SORTCODE = os.getenv("BANK_ACCOUNT_SORTCODE")
 SUPPORT_EMAIL = os.getenv("SUPPORT_EMAIL")
 SUPPORT_CONTACT_NUMBER = os.getenv("SUPPORT_CONTACT_NUMBER")
 SECRET_KEY = os.getenv("SECRET_KEY")
+SERVER_NAME = os.getenv("SERVER_NAME")
 
 # Setup logging
 log.setLevel(PYTHON_LOG_LEVEL)
@@ -78,6 +79,7 @@ headers = {
 
 app = Flask(__name__)
 app.secret_key = SECRET_KEY
+app.config["SERVER_NAME"] = SERVER_NAME
 CORS(app)
 
 
