@@ -8,8 +8,11 @@
 
 		<div class="py-5 text-center">
 			<h1>Address</h1>
+			<div class="alert alert-info mb-4">
+				<strong>🇬🇧 UK Addresses Only</strong> - We only deliver to UK addresses
+			</div>
 			<p class="lead">
-			Please enter your postal address
+			Please enter your UK postal address
 			</p>
 			{% if error %}
 			<div class="alert alert-danger" role="alert">
@@ -39,8 +42,8 @@
       <br />
 
       <br />
-      <label for="postcode">Postcode</label>
-      <input name="postcode" id="postcode" class="form-control" autocomplete="postal-code" />
+      <label for="postcode">UK Postcode</label>
+      <input name="postcode" id="postcode" class="form-control" autocomplete="postal-code" placeholder="e.g. SW1A 1AA" />
       <br />
       <button type="submit" class="btn btn-primary">Submit</button>
     </form>
