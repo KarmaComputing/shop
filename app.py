@@ -10,6 +10,7 @@ import requests
 import os
 import json
 import logging
+import secrets
 from datetime import datetime
 from dotenv import load_dotenv
 
@@ -83,6 +84,13 @@ app.config["SERVER_NAME"] = SERVER_NAME
 CORS(app)
 
 
+def generate_payment_reference(length=8):
+    """Generate a human-friendly payment reference avoiding confusing characters"""
+    # Avoid confusing characters: 0, O, I, 1, S, 5, Z, 2
+    safe_chars = "ABCDEFGHJKLMNPQRTUVWXY346789"
+    return "".join(secrets.choice(safe_chars) for _ in range(length))
+
+
 # Jinja template filter for price formatting
 @app.template_filter("price_format")
 def price_format(value_in_pence):
@@ -98,6 +106,10 @@ def price_format(value_in_pence):
 
 @app.route("/pay")
 def pay():
+    # Generate payment reference if not already in session
+    if "expected_payment_reference" not in session:
+        session["expected_payment_reference"] = generate_payment_reference()
+
     return render_template(
         "pay.html",
         BANK_ACCOUNT_NAME=BANK_ACCOUNT_NAME,
@@ -106,6 +118,7 @@ def pay():
         SUPPORT_EMAIL=SUPPORT_EMAIL,
         SUPPORT_CONTACT_NUMBER=SUPPORT_CONTACT_NUMBER,
         SERVER_NAME=SERVER_NAME,
+        expected_payment_reference=session["expected_payment_reference"],
     )
 
 
@@ -144,6 +157,10 @@ def get_address():
         price_env_var = f"PRODUCT_SELL_PRICE_{product_code}"
         sell_price = os.getenv(price_env_var)
 
+        # Generate payment reference if not already in session
+        if "expected_payment_reference" not in session:
+            session["expected_payment_reference"] = generate_payment_reference()
+
         # Create address data object
         address_data = {
             "email": email,
@@ -155,6 +172,7 @@ def get_address():
             "sell_price": sell_price,
             "payment_status": "NOT_PAID",
             "created_at": datetime.now().isoformat(),
+            "expected_payment_reference": session["expected_payment_reference"],
         }
 
         try:
@@ -182,9 +200,11 @@ def get_address():
     return render_template("address.html")
 
 
-@app.route("/check-payment-status/<expected_payment_reference>")
-def check_payment_status(expected_payment_reference) -> bool:
+@app.route("/check-payment-status")
+def check_payment_status() -> bool:
     bool_located_payment_reference = False
+    expected_payment_reference = session.get("expected_payment_reference")
+    assert expected_payment_reference is not None
 
     # startDate = "yyyy-mm-dd"
     # endDate = "yyyy-mm-dd"

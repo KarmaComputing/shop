@@ -20,7 +20,7 @@
     <form>
 
       <label for="payment_reference">Payment reference you must use:</label>
-      <input name="reference" id="expected_payment_reference" value="{{ expected_payment_reference or "ADHNTPC8" }}" class="form-control" disabled />
+      <input name="reference" id="expected_payment_reference" value="{{ expected_payment_reference }}" class="form-control" disabled />
       <div  class="form-text">You <em>must</em> use the exact payment reference above when making the payment.</div>
 
       <br />
@@ -89,7 +89,7 @@
 				checking_payment_made_progress.textContent = "Checking for payment...";
 
 				let expected_payment_reference = document.getElementById("expected_payment_reference").value;
-				fetch(`${document.location.protocol}//{{ SERVER_NAME }}/check-payment-status/${expected_payment_reference}`, {
+				fetch(`${document.location.protocol}//{{ SERVER_NAME }}/check-payment-status`, {
 				method: "GET",
 				headers: { 'Content-Type': 'application/json'}
 				})
