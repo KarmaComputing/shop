@@ -21,8 +21,12 @@
 	  <div class="container">
 		<div class="row">
 		  <div class="col">
-                      <h1>Team QX2 (T253X7002T0C101) 2TB 2.5 Inch SSD, Sata 3 Interface, Read 560MB/s, Write 550MB/s, 3 Year Warranty</h1>
-                      <h2 class="text-primary">£{{ sell_price|price_format }}</h2>
+                      <h1>Team QX2 2TB SSD - High-Speed Storage for Gaming</h1>
+                      <p class="text-muted">Model: T253X7002T0C101 | 560MB/s Read Speed | 3 Year Warranty</p>
+                      <div class="d-flex align-items-center justify-content-between">
+                        <h2 class="text-primary mb-0">£{{ sell_price|price_format }}</h2>
+                        <div class="badge bg-warning text-dark">Limited Stock</div>
+                      </div>
                       <div class="alert alert-success mt-3">
                         <strong>✅ FREE UK Postage</strong> - No additional shipping costs!
                       </div>
@@ -33,12 +37,22 @@
 		    <img width="240px" src="{{ url_for('static', filename='images/HDTEA-2TB-QX2.JPG') }}" class="img-fluid" />
 		  </div>
                   <div class="col-md-8">
+                    <div class="mb-4">
+                      <h5>Product Features</h5>
+                      <ul class="list-unstyled">
+                        <li>💾 <strong>2TB Storage Capacity</strong> - 2,000GB storage space</li>
+                        <li>🎮 <strong>Gaming Ready</strong> - Suitable for Steam libraries</li>
+                        <li>⚡ <strong>560MB/s Read Speed</strong> - High-speed data access</li>
+                        <li>🔧 <strong>Standard 2.5" SATA III</strong> - Compatible with most systems</li>
+                        <li>🛡️ <strong>3 Year Manufacturer Warranty</strong> - Quality assurance</li>
+                      </ul>
+                    </div>
+                    
                     <table class="table">
                         <tbody>
-                            <!-- Key Specifications Section -->
                             <tr>
                                 <td colspan="2">
-                                    <h5 class="mb-0">Key Specifications</h5>
+                                    <h5 class="mb-0">Technical Specifications</h5>
                                 </td>
                             </tr>
                             <tr>
@@ -46,20 +60,28 @@
                                     <table class="table table-striped mb-0">
                                         <tbody>
                                             <tr>
-                                                <td>Type Of Drive</td>
-                                                <td>2.5 Inch</td>
+                                                <td>Capacity</td>
+                                                <td><strong>2TB (2,000GB)</strong></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Read Speed</td>
+                                                <td><strong>560MB/s</strong></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Write Speed</td>
+                                                <td><strong>550MB/s</strong></td>
                                             </tr>
                                             <tr>
                                                 <td>Connection</td>
-                                                <td>SATA III</td>
+                                                <td>SATA III (6Gb/s)</td>
                                             </tr>
                                             <tr>
-                                                <td>Capacity</td>
-                                                <td>2TB</td>
+                                                <td>Form Factor</td>
+                                                <td>2.5 Inch</td>
                                             </tr>
                                             <tr>
-                                                <td>Packaging</td>
-                                                <td>Retail</td>
+                                                <td>Warranty</td>
+                                                <td>3 Years</td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -72,7 +94,8 @@
 		
 		<div class="row">
 		  <div class="col-12">
-		    <a href="{{ url_for('get_address', product_code='T253X7002T0C101') }}" class="btn btn-success mb-3">Buy</a>
+		    <a href="{{ url_for('get_address', product_code='T253X7002T0C101') }}" class="btn btn-success btn-lg mb-3">Buy Now - £{{ sell_price|price_format }}</a>
+		    <p class="text-muted small">✅ 3 Year Warranty ✅ FREE UK Delivery ✅ Retail Packaging</p>
 		  </div>
 		</div>
 		
