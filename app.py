@@ -5,6 +5,7 @@ Based on Zero-Fees Payment Collection System
 """
 
 from flask import Flask, render_template, jsonify, request, url_for, redirect, session
+from flask_cors import CORS
 import requests
 import os
 import json
@@ -77,6 +78,7 @@ headers = {
 
 app = Flask(__name__)
 app.secret_key = SECRET_KEY
+CORS(app)
 
 
 # Jinja template filter for price formatting
