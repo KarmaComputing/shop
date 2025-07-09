@@ -22,25 +22,25 @@
       <input type="hidden" name="product_code" value="{{ request.args.get('product_code') }}" />
 
       <label for="email">Email Address</label>
-      <input name="email" id="email" type="email" class="form-control" required />
+      <input name="email" id="email" type="email" class="form-control" autocomplete="email" inputmode="email" required />
       <br />
 
       <label for="addr_line_1">Address Line 1</label>
-      <input name="addr_line_1" id="addr_line_1" class="form-control" />
+      <input name="addr_line_1" id="addr_line_1" class="form-control" autocomplete="address-line1" />
 
       <br />
       <label for="addr_line_2">Address Line 2</label>
-      <input name="addr_line_2" id="addr_line_2" class="form-control" />
+      <input name="addr_line_2" id="addr_line_2" class="form-control" autocomplete="address-line2" />
       <br />
 
       <br />
       <label for="city">City</label>
-      <input name="city" id="city" class="form-control" />
+      <input name="city" id="city" class="form-control" autocomplete="address-level2" />
       <br />
 
       <br />
       <label for="postcode">Postcode</label>
-      <input name="postcode" id="postcode" class="form-control" />
+      <input name="postcode" id="postcode" class="form-control" autocomplete="postal-code" />
       <br />
       <button type="submit" class="btn btn-primary">Submit</button>
     </form>
