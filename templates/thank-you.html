@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+
+{% block title %}Payment Successful - Thank You!{% endblock %}
+
+{% block content %}
+<div class="container">
+    <main>
+        <div class="py-5 text-center">
+            <div class="alert alert-success" role="alert">
+                <h1 class="display-4">Payment Received!</h1>
+                <p class="lead">
+                    Thank you for your payment. Your transaction has been successfully processed.
+                </p>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title mb-0">Payment Details</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row mb-3">
+                            <div class="col-sm-4">
+                                <strong>Amount:</strong>
+                            </div>
+                            <div class="col-sm-8">
+                                £{{ amount | price_format if amount else "N/A" }}
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-sm-4">
+                                <strong>Payment Time:</strong>
+                            </div>
+                            <div class="col-sm-8">
+                                {{ timestamp or "N/A" }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="py-4 text-center">
+            <h4>What happens next?</h4>
+            <p class="text-muted">
+                We'll be posting your item to you as soon as possible. 
+                If you have any questions, please contact us at {{ SUPPORT_EMAIL }} or call {{ SUPPORT_CONTACT_NUMBER }}.
+            </p>
+        </div>
+
+        <div class="text-center">
+            <a href="/" class="btn btn-primary">Return to Shop</a>
+        </div>
+    </main>
+</div>
+{% endblock %}

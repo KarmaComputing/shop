@@ -4,3 +4,5 @@ venv
 run.sh
 *.swp
 .env
+*.pyc
+customer_data/*
