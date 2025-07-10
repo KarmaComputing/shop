@@ -60,6 +60,7 @@ SUPPORT_EMAIL = os.getenv("SUPPORT_EMAIL")
 SUPPORT_CONTACT_NUMBER = os.getenv("SUPPORT_CONTACT_NUMBER")
 SECRET_KEY = os.getenv("SECRET_KEY")
 SERVER_NAME = os.getenv("SERVER_NAME")
+GOOGLE_TAG_ACCOUNT_ID = os.getenv("GOOGLE_TAG_ACCOUNT_ID")
 
 # Setup logging
 log.setLevel(PYTHON_LOG_LEVEL)
@@ -82,6 +83,17 @@ app = Flask(__name__)
 app.secret_key = SECRET_KEY
 app.config["SERVER_NAME"] = SERVER_NAME
 CORS(app)
+
+
+@app.context_processor
+def inject_global_vars():
+    """Inject global variables into all templates"""
+    return dict(
+        GOOGLE_TAG_ACCOUNT_ID=GOOGLE_TAG_ACCOUNT_ID,
+        SUPPORT_EMAIL=SUPPORT_EMAIL,
+        SUPPORT_CONTACT_NUMBER=SUPPORT_CONTACT_NUMBER,
+        SERVER_NAME=SERVER_NAME,
+    )
 
 
 def generate_payment_reference(length=8):
@@ -248,6 +260,7 @@ def thank_you():
         SUPPORT_CONTACT_NUMBER=SUPPORT_CONTACT_NUMBER,
     )
 
+
 @app.route("/returns")
 def returns():
-    return render_template('returns.html')
+    return render_template("returns.html")
