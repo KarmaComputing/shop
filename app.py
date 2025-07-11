@@ -71,6 +71,7 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 SERVER_NAME = os.getenv("SERVER_NAME")
 GOOGLE_TAG_ACCOUNT_ID = os.getenv("GOOGLE_TAG_ACCOUNT_ID")
 STATIC_ROOT_DIR = os.getenv("STATIC_ROOT_DIR")
+CONTACT_URL = os.getenv("CONTACT_URL")
 
 # Setup logging
 log.setLevel(PYTHON_LOG_LEVEL)
@@ -103,6 +104,7 @@ def inject_global_vars():
         SUPPORT_EMAIL=SUPPORT_EMAIL,
         SUPPORT_CONTACT_NUMBER=SUPPORT_CONTACT_NUMBER,
         SERVER_NAME=SERVER_NAME,
+        CONTACT_URL=CONTACT_URL,
     )
 
 
