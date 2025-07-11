@@ -4,7 +4,16 @@ Basic Shop
 Based on Zero-Fees Payment Collection System
 """
 
-from flask import Flask, render_template, jsonify, request, url_for, redirect, session
+from flask import (
+    Flask,
+    render_template,
+    jsonify,
+    request,
+    url_for,
+    redirect,
+    session,
+    send_from_directory,
+)
 from flask_cors import CORS
 import requests
 import os
@@ -61,6 +70,7 @@ SUPPORT_CONTACT_NUMBER = os.getenv("SUPPORT_CONTACT_NUMBER")
 SECRET_KEY = os.getenv("SECRET_KEY")
 SERVER_NAME = os.getenv("SERVER_NAME")
 GOOGLE_TAG_ACCOUNT_ID = os.getenv("GOOGLE_TAG_ACCOUNT_ID")
+STATIC_ROOT_DIR = os.getenv("STATIC_ROOT_DIR")
 
 # Setup logging
 log.setLevel(PYTHON_LOG_LEVEL)
@@ -264,3 +274,9 @@ def thank_you():
 @app.route("/returns")
 def returns():
     return render_template("returns.html")
+
+
+@app.route("/<path:filename>")
+def custom_static(filename):
+    assert filename != '.env'
+    return send_from_directory("/home/karma/shop/static/pages/", filename)
