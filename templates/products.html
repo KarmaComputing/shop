@@ -2,6 +2,94 @@
 
 {% block title %}Team QX2 2TB SSD (T253X7002T0C101) - 3 Year Warranty | Karma Computing{% endblock %}
 
+{% block head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "Team QX2 2TB SSD - High-Speed Storage for Gaming",
+  "image": "{{ url_for('static', filename='images/HDTEA-2TB-QX2.JPG', _external=True) }}",
+  "description": "Team QX2 2TB 2.5 Inch SSD with SATA 3 Interface. Read speed 560MB/s, Write speed 550MB/s. 3 Year Warranty. Perfect for gaming and high-capacity storage needs. Retail packaging included.",
+  "sku": "T253X7002T0C101",
+  "mpn": "T253X7002T0C101",
+  "brand": {
+    "@type": "Brand",
+    "name": "TEAM"
+  },
+  "manufacturer": {
+    "@type": "Organization",
+    "name": "TEAM"
+  },
+  "category": "Electronics > Computer Components > Storage Devices > Solid State Drives",
+  "offers": {
+    "@type": "Offer",
+    "url": "{{ url_for('index', _external=True) }}",
+    "priceCurrency": "GBP",
+    "price": "{{ sell_price|price_format }}",
+    "priceValidUntil": "2025-12-31",
+    "availability": "https://schema.org/InStock",
+    "itemCondition": "https://schema.org/NewCondition",
+    "seller": {
+      "@type": "Organization",
+      "name": "Karma Computing",
+      "url": "{{ url_for('index', _external=True) }}"
+    },
+    "shippingDetails": {
+      "@type": "OfferShippingDetails",
+      "shippingRate": {
+        "@type": "MonetaryAmount",
+        "currency": "GBP",
+        "value": "0.00"
+      },
+      "deliveryTime": {
+        "@type": "ShippingDeliveryTime",
+        "businessDays": {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
+        }
+      },
+      "shippingDestination": {
+        "@type": "DefinedRegion",
+        "addressCountry": "GB"
+      }
+    }
+  },
+  "additionalProperty": [
+    {
+      "@type": "PropertyValue",
+      "name": "Capacity",
+      "value": "2TB"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Read Speed",
+      "value": "560MB/s"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Write Speed",
+      "value": "550MB/s"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Form Factor",
+      "value": "2.5 Inch"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Interface",
+      "value": "SATA III"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Warranty",
+      "value": "3 Years"
+    }
+  ]
+}
+</script>
+{% endblock %}
+
 {% block content %}
 <main>
 	  <div class="container">
